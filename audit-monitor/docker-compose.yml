@@ -1,0 +1,14 @@
+services:
+  audit-monitor:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATA_DIR: /srv/data
+      STATIC_DIR: /srv/static
+    volumes:
+      - audit-data:/srv/data
+    restart: unless-stopped
+
+volumes:
+  audit-data:
